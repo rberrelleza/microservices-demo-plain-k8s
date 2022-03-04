@@ -11,6 +11,7 @@ jobs:
       uses: okteto/context@latest
       with:
         token: ${{ secrets.OKTETO_TOKEN }}
+        url: https://ramiro.okteto.dev
         
     - name: Deploy preview environment
       uses: okteto/deploy-preview@latest
