@@ -1,0 +1,23 @@
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Context
+      uses: okteto/context@latest
+      with:
+        token: ${{ secrets.OKTETO_TOKEN }}
+        url: https://ramiro.okteto.dev
+        
+    - name: Deploy preview environment
+      uses: okteto/deploy-preview@ab351345ca33dc32f9df8a0e23d42c2b023a81dc
+      env:
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        name: pr-${{ github.event.number }}-microservices
+        scope: global
+        timeout: 15m
