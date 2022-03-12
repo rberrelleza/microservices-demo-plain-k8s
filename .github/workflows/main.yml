@@ -14,7 +14,7 @@ jobs:
         url: https://ramiro.okteto.dev
         
     - name: Deploy preview environment
-      uses: okteto/deploy-preview@latest
+      uses: okteto/deploy-preview@ab351345ca33dc32f9df8a0e23d42c2b023a81dc
       env:
        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
